@@ -158,3 +158,6 @@ db.sqlite3
 locustfile.py
 
 *.settings.py
+
+settings.py
+
