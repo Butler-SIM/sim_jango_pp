@@ -78,6 +78,10 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'butler-sim',
+        'USER': 'admin',
+        'PASSWORD': 'qwer1234',
+        'HOST': 'butlersimdb.cypn7ittsrwd.ap-northeast-2.rds.amazonaws.com',
         'NAME': 'simjango',
         'USER': 'root',
         'PASSWORD': '1234',
@@ -86,6 +90,7 @@ DATABASES = {
         "OPTIONS": {"charset": "utf8mb4"},
     }
 }
+
 
 
 # Password validation
