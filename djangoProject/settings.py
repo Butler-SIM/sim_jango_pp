@@ -70,7 +70,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'djangoProject.wsgi.application'
-
+###
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'aaaa',
+        'NAME': 'bbbb',
         'USER': 'root',
         'PASSWORD': '1234',
         'HOST': 'localhost',
