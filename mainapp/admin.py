@@ -20,3 +20,4 @@ class MainappAdmin(admin.ModelAdmin):
         'id',
         'main_intro',
     ]
+

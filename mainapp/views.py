@@ -5,11 +5,10 @@ from mainapp.models import MainappModel
 
 
 def main(request):
-    #db데이터 가져오기
-    main_model = MainappModel.objects.get(id=1) # Mainapp테이블에서 id가 1인 로우 가져오기
 
-    item = {'main_intro':main_model.main_intro}   #딕셔너리 형식으로 담아줘야함
+    main_model = MainappModel.objects.get(id=1)
 
+    item = {'main_intro':main_model.main_intro}
     return render(request, 'index.html',item)
 
 def about(request):
@@ -22,6 +21,8 @@ def portfolio(request):
     return render(request, 'portfolio.html')
 
 def portfolio_details(request):
+    id = request.GET['id']
+    print(request.GET['id'])
     return render(request, 'portfolio-details.html')
 
 def resume(request):
