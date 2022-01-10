@@ -6,10 +6,8 @@ from mainapp.models import MainappModel
 
 def main(request):
 
-    main_model = MainappModel.objects.get(id=1)
 
-    item = {'main_intro':main_model.main_intro}
-    return render(request, 'index.html',item)
+    return render(request, 'index.html')
 
 def about(request):
     return render(request, 'about.html')
