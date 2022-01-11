@@ -1,11 +1,10 @@
 from django.shortcuts import render
 
 # Create your views here.
-from mainapp.models import MainappModel
+from mainapp.models import *
 
 
 def main(request):
-
 
     return render(request, 'index.html')
 
@@ -16,12 +15,38 @@ def contact(request):
     return render(request, 'contact.html')
 
 def portfolio(request):
-    return render(request, 'portfolio.html')
+
+    web_list = ProjectInfoModel.objects.filter(category = 'web')
+    app_list = ProjectInfoModel.objects.filter(category = 'app')
+
+    model = {"web_list" : web_list,"app_list" : app_list}
+
+    return render(request, 'portfolio.html',model)
 
 def portfolio_details(request):
-    id = request.GET['id']
-    print(request.GET['id'])
-    return render(request, 'portfolio-details.html')
+    id = int(request.GET['id'])
+
+
+    category = ''
+
+    project_model = ProjectInfoModel.objects.get(id = id)
+
+    if project_model.category == 'web' :
+        category = 'Web Developer'
+    elif project_model.category == 'app' :
+        category = 'BackEnd Developer, Server Developer, Web Developer'
+
+    images_list = ProjectImageModel.objects.filter(project_id = id)
+
+    model = {   'project_name' : project_model.project_name,
+                'category' : category,
+                'client' : project_model.client,
+                'project_period' : project_model.project_period,
+                'project_URL' : project_model.project_URL,
+                'project_introduction' : project_model.project_introduction,
+                "images_list" : images_list}
+
+    return render(request, 'portfolio-details.html',model)
 
 def resume(request):
     return render(request, 'resume.html')

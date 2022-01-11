@@ -7,7 +7,7 @@ class MainappModel(models.Model):
     project_id = models.IntegerField(null=False, blank=False, verbose_name="프로젝트 index")
 
 class ProjectImageModel(models.Model):
-    project_image = models.TextField(max_length=50, null=True, blank=True, verbose_name="프로젝트 이미지")
+    project_image = models.ImageField(null=True, blank=True, verbose_name="프로젝트 이미지")
     project_id = models.IntegerField(null=False, blank=False, verbose_name="프로젝트 index")
 
 class ProjectInfoModel(models.Model):
@@ -17,3 +17,4 @@ class ProjectInfoModel(models.Model):
     project_period = models.CharField(max_length=100, null=True, blank=True, verbose_name="프로젝트 정보 project_period")
     project_URL = models.CharField(max_length=100, null=True, blank=True, verbose_name="프로젝트 정보 Project_URL")
     project_introduction = models.TextField(null=True, blank=True, verbose_name="프로젝트 소개")
+    project_main_image = models.ImageField(null=True, blank=True, verbose_name="프로젝트 대표 이미지")
