@@ -37,7 +37,7 @@ def portfolio_details(request):
         category = 'BackEnd Developer, Server Developer, Web Developer'
 
     images_list = ProjectImageModel.objects.filter(project_id = id)
-
+    print(project_model.project_introduction)
     model = {   'project_name' : project_model.project_name,
                 'category' : category,
                 'client' : project_model.client,
