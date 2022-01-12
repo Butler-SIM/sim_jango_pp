@@ -1,26 +1,19 @@
-from server_settings.settings.base import *
+from .base import *
 
-# def read_secret(secret_name):
-#     file = open('/run/secrets/' + secret_name)
-#     secret = file.read()
-#     secret = secret.lstrip().rstrip()
-#     file.close()
-#     return secret
+SECRET_KEY = os.environ.get('SECRET_KEY', 'unsafe-secret-key')
+algorithm = os.environ.get('algorithm')
 
-SECRET_KEY = 'django-insecure-t_9znj@bw+-cbx2nkdwlbihf3woilscsbm+t!=ze$5!sqp3=5w'
-algorithm='HS256'
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
-#DB
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'butler-sim',
-        'USER': 'admin',
-        'PASSWORD': 'qwer1234',
-        'HOST': 'butlersimdb.cypn7ittsrwd.ap-northeast-2.rds.amazonaws.com',
-        'PORT': '3306',
-        "OPTIONS": {"charset": "utf8mb4"},
-    }
-}
+        'ENGINE': os.environ.get('APP_DB_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.environ.get('DB_NAME', 'db.sqlite'),
+        'USER': os.environ.get('DB_USER', ''),
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+        'HOST': os.environ.get('DB_HOST', None),
+        'PORT': os.environ.get('DB_PORT', None),
+        }
+     }
