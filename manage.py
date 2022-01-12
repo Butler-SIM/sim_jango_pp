@@ -2,7 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-import dotenv     # <- 환경변수
+
 
 
 def main():
@@ -20,6 +20,6 @@ def main():
 
 
 if __name__ == '__main__':
-    dotenv.read_dotenv()    # <- 환경변수
+
 
     main()

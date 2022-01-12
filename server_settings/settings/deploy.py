@@ -3,7 +3,7 @@ from .base import *
 SECRET_KEY = os.environ.get('SECRET_KEY', 'unsafe-secret-key')
 algorithm = os.environ.get('algorithm')
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 
