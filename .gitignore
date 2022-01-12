@@ -534,3 +534,4 @@ FodyWeavers.xsd
 
 
 .env
+.settings.env

@@ -8,89 +8,22 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /home/ubuntu/source/nginx.conf:/etc/nginx/nginx.conf
+      - /home/ubuntu/nginx.conf:/etc/nginx/nginx.conf
       - static:/data/static
       - media:/data/media
       - /home/ubuntu/myweb:/usr/share/nginx/html
     depends_on:
-      # - mariadb
       - django_gunicorn
 
-  # nginx:
-  #   image: nginx:1.20.0
-  #   networks:
-  #     - network
-  #   volumes:
-  #   - /home/ubuntu/myweb:/usr/share/nginx/html
-
-  redis:
-    image: redis:6.2.5
-    networks:
-      - network
-    ports:
-      - "6379:6379"
-
-  # mariadb:
-  #   image: mariadb:10.5
-  #   networks:
-  #     - network
-  #   volumes:
-  #     - database:/var/lib/mysql
-  #   secrets:
-  #     - MYSQL_PASSWORD
-  #     - MYSQL_ROOT_PASSWORD
-  #   ports:
-  #     - '3306:3306'
-  #   environment:
-  #     MYSQL_DATABASE: django
-  #     MYSQL_USER: kwon
-  #     MYSQL_PASSWORD_FILE: /run/secrets/MYSQL_PASSWORD
-  #     MYSQL_ROOT_PASSWORD_FILE: /run/secrets/MYSQL_ROOT_PASSWORD
-
   django_gunicorn:
-    image: django-api:1.1.5
+    image: django-sim:1.1.1
     networks:
       - network
     volumes:
-      - static:/home/pleasy_api/staticfiles
-      - media:/home/pleasy_api/media
-    secrets:
-      - MYSQL_PASSWORD
-      - DJANGO_SECRET_KEY
-    links:
-      - redis
-    # depends_on:
-    #   - mariadb
-
-  daphne:
-    image: django-api:1.1.5
-    networks:
-      - network
-    volumes:
-      - static:/home/pleasy_api/staticfiles
-      - media:/home/pleasy_api/media
-    secrets:
-      - MYSQL_PASSWORD
-      - DJANGO_SECRET_KEY
-    command: bash -c "daphne -b 0.0.0.0 -p 8000 server_settings.asgi:application"
-    links:
-      - redis
-    depends_on:
-      - redis
-    #  - mariadb
+      - static:/home/sim_jango_pp/staticfiles
+      - media:/home/sim_jango_pp/media
 
 
-
-  # jenkins:
-  #     image: jenkins/jenkins:lts
-  #     container_name: jenkins_cicd
-  #     volumes:
-  #         - /var/run/docker.sock:/var/run/docker.sock
-  #         - /jenkins:/var/jenkins_home
-  #     ports:
-  #         - "8080:8080"
-  #     privileged: true
-  #     user: root
 
 networks:
   network:
@@ -100,11 +33,5 @@ volumes:
   database:
   media:
 
-secrets:
-  DJANGO_SECRET_KEY:
-    external: true
-  MYSQL_PASSWORD:
-    external: true
-  MYSQL_ROOT_PASSWORD:
-    external: true
+
 

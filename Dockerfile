@@ -18,7 +18,7 @@ WORKDIR /home/
 
 RUN git clone git@github.com:Butler-SIM/sim_jango_pp.git
 
-WORKDIR /home/API.pleasy/
+WORKDIR /home/sim_jango_pp/
 
 RUN pip install --upgrade pip
 
