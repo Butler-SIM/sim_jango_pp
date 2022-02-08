@@ -4,7 +4,7 @@ SECRET_KEY = 'django-insecure-t_9znj@bw+-cbx2nkdwlbihf3woilscsbm+t!=ze$5!sqp3=5w
 algorithm='HS256'
 DEBUG = False
 ALLOWED_HOSTS = ['*']
-
+#
 #DB
 DATABASES = {
     'default': {
