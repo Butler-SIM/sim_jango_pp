@@ -8,12 +8,11 @@ ALLOWED_HOSTS = ['*']
 #DB
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'butler-sim',
-        'USER': 'admin',
-        'PASSWORD': 'qwer1234',
-        'HOST': 'butlersimdb.cypn7ittsrwd.ap-northeast-2.rds.amazonaws.com',
-        'PORT': '3306',
-        "OPTIONS": {"charset": "utf8mb4"},
-    }
-}
+        'ENGINE': os.environ.get('APP_DB_ENGINE'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
+        }
+     }
