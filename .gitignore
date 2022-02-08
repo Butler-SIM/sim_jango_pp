@@ -535,3 +535,5 @@ FodyWeavers.xsd
 
 .env
 .settings.env
+
+.home.py

@@ -96,3 +96,4 @@ LOGOUT_REDIRECT_URL = 'accountapp:login'
 SECRET_KEY = 'django-insecure-t_9znj@bw+-cbx2nkdwlbihf3woilscsbm+t!=ze$5!sqp3=5w'
 algorithm='HS256'
 
+ALLOWED_HOSTS = ['*']
