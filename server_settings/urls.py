@@ -31,6 +31,7 @@ handler500 = 'server_settings.views.error500'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mainapp.urls')),
+    path('etc', include('etc.urls')),
 ]
 
 urlpatterns += static(settings.base.MEDIA_URL, document_root=settings.base.MEDIA_ROOT)
