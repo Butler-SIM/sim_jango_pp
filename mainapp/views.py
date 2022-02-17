@@ -17,11 +17,17 @@ def contact(request):
     return render(request, 'contact.html')
 
 def portfolio(request):
+    web_list = ''
+    app_list = ''
+    try:
+        if ProjectInfoModel.objects.filter(category = 'web' ).exists():
+            web_list = ProjectInfoModel.objects.filter(category = 'web')
 
-    web_list = ProjectInfoModel.objects.filter(category = 'web')
-    app_list = ProjectInfoModel.objects.filter(category = 'app')
-
-    model = {"web_list" : web_list,"app_list" : app_list}
+        if ProjectInfoModel.objects.filter(category='app').exists():
+            app_list = ProjectInfoModel.objects.filter(category = 'app')
+    except Exception:
+        pass
+    model = {"web_list" : web_list, "app_list" : app_list}
 
     return render(request, 'portfolio.html',model)
 
