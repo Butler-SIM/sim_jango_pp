@@ -536,4 +536,6 @@ FodyWeavers.xsd
 .env
 .settings.env
 
-.home.py
+server_settings/settings/home.py
+
+/server_settings/settings/deploy.py
