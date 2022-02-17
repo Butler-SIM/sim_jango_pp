@@ -537,3 +537,5 @@ FodyWeavers.xsd
 .settings.env
 
 .home.py
+
+.deploy.py
