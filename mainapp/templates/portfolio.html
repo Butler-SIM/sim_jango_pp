@@ -46,45 +46,46 @@
                 {#            </div>#}
                 {#            </a>#}
                 {#          </div>#}
-
-                {% for item in web_list %}
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                        <a href="/mainapp/portfolio_details/?id={{ item.id }}">
-                            <div class="portfolio-wrap">
-                                <img src="/media/{{ item.project_main_image }}" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <h4>Web {{ item.project_name }}</h4>
-                                    <p>Web</p>
-                                    <div class="portfolio-links">
-                                        <a href="/media/{{ item.project_main_image }}" data-gallery="portfolioGallery"
-                                           class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                {% if web_list.size > 0 %}
+                    {% for item in web_list %}
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+                            <a href="/mainapp/portfolio_details/?id={{ item.id }}">
+                                <div class="portfolio-wrap">
+                                    <img src="/media/{{ item.project_main_image }}" class="img-fluid" alt="">
+                                    <div class="portfolio-info">
+                                        <h4>Web {{ item.project_name }}</h4>
+                                        <p>Web</p>
+                                        <div class="portfolio-links">
+                                            <a href="/media/{{ item.project_main_image }}" data-gallery="portfolioGallery"
+                                               class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-                <!-- ----------------------------------------------/web/--------------------------------------------------------------------- -->
+                            </a>
+                        </div>
+                    {% endfor %}
 
-                <!-- ----------------------------------------------app--------------------------------------------------------------------- -->
-                {% for item in app_list %}
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <a href="/mainapp/portfolio_details/?id={{ item.id }}">
-                            <div class="portfolio-wrap">
-                                <img src="/media/{{ item.project_main_image }}" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <h4>APP {{ item.project_name }}</h4>
-                                    <p>APP</p>
-                                    <div class="portfolio-links">
-                                        <a href="/media/{{ item.project_main_image }}" data-gallery="portfolioGallery"
-                                           class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                    <!-- ----------------------------------------------/web/--------------------------------------------------------------------- -->
+
+                    <!-- ----------------------------------------------app--------------------------------------------------------------------- -->
+                    {% for item in app_list %}
+                        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                            <a href="/mainapp/portfolio_details/?id={{ item.id }}">
+                                <div class="portfolio-wrap">
+                                    <img src="/media/{{ item.project_main_image }}" class="img-fluid" alt="">
+                                    <div class="portfolio-info">
+                                        <h4>APP {{ item.project_name }}</h4>
+                                        <p>APP</p>
+                                        <div class="portfolio-links">
+                                            <a href="/media/{{ item.project_main_image }}" data-gallery="portfolioGallery"
+                                               class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
                 <!-- ----------------------------------------------/app/--------------------------------------------------------------------- -->
 
 
@@ -98,18 +99,7 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 
-<!-- Vendor JS Files -->
-<script src="/static/vendor/purecounter/purecounter.js"></script>
-<script src="/static/vendor/aos/aos.js"></script>
-<script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/static/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="/static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="/static/vendor/waypoints/noframework.waypoints.js"></script>
-<script src="/static/vendor/php-email-form/validate.js"></script>
 
-<!-- Template Main JS File -->
-<script src="/static/js/main.js"></script>
 
 </body>
 
