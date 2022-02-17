@@ -539,3 +539,11 @@ FodyWeavers.xsd
 server_settings/settings/home.py
 
 /server_settings/settings/deploy.py
+
+.docker-compose.yml
+
+.Dockerfile
+
+.nginx.conf
+
+.settings.env
