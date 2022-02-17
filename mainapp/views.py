@@ -25,6 +25,7 @@ def portfolio(request):
 
         if ProjectInfoModel.objects.filter(category='app').exists():
             app_list = ProjectInfoModel.objects.filter(category = 'app')
+
     except Exception:
         pass
     model = {"web_list" : web_list, "app_list" : app_list}
@@ -51,7 +52,8 @@ def portfolio_details(request):
                 'project_period' : project_model.project_period,
                 'project_URL' : project_model.project_URL,
                 'project_introduction' : project_model.project_introduction,
-                "images_list" : images_list}
+                "images_list" : images_list
+            }
 
     return render(request, 'portfolio-details.html',model)
 
