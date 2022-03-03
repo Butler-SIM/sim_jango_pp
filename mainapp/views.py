@@ -21,7 +21,7 @@ def portfolio(request):
     app_list = ''
     try:
         if ProjectInfoModel.objects.filter(category = 'web' ).exists():
-            web_list = ProjectInfoModel.objects.filter(category = 'web')
+            web_list = ProjectInfoModel.objects.filter(category = 'web').order_by('-id')
 
         if ProjectInfoModel.objects.filter(category='app').exists():
             app_list = ProjectInfoModel.objects.filter(category = 'app')
