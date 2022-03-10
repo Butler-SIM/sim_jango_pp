@@ -10,11 +10,14 @@ def main(request):
 
     return render(request, 'index.html')
 
+
 def about(request):
     return render(request, 'about.html')
 
+
 def contact(request):
     return render(request, 'contact.html')
+
 
 def portfolio(request):
     web_list = ''
@@ -31,6 +34,7 @@ def portfolio(request):
     model = {"web_list" : web_list, "app_list" : app_list}
 
     return render(request, 'portfolio.html',model)
+
 
 def portfolio_details(request):
     id = int(request.GET['id'])
@@ -57,8 +61,10 @@ def portfolio_details(request):
 
     return render(request, 'portfolio-details.html',model)
 
+
 def resume(request):
     return render(request, 'resume.html')
+
 
 def services(request):
     return render(request, 'services.html')
