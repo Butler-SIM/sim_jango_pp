@@ -6,3 +6,5 @@ from django.shortcuts import render
 def etcList(request):
 
     return render(request, 'main.html')
+
+
