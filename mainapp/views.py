@@ -1,4 +1,5 @@
 import os
+import socket
 
 from django.shortcuts import render
 
@@ -7,24 +8,27 @@ from mainapp.models import *
 
 
 def main(request):
+    ip =socket.gethostbyname(socket.gethostname())
 
+    if VisitantModel.objects.filter(visitant_ip=ip).exists():
+        return render(request, 'index.html')
+
+    VisitantModel.objects.create(visitant_ip=ip)
     return render(request, 'index.html')
 
 
 def about(request):
     return render(request, 'about.html')
 
-
 def contact(request):
     return render(request, 'contact.html')
-
 
 def portfolio(request):
     web_list = ''
     app_list = ''
     try:
         if ProjectInfoModel.objects.filter(category = 'web' ).exists():
-            web_list = ProjectInfoModel.objects.filter(category = 'web').order_by('-id')
+            web_list = ProjectInfoModel.objects.filter(category = 'web')
 
         if ProjectInfoModel.objects.filter(category='app').exists():
             app_list = ProjectInfoModel.objects.filter(category = 'app')
@@ -34,7 +38,6 @@ def portfolio(request):
     model = {"web_list" : web_list, "app_list" : app_list}
 
     return render(request, 'portfolio.html',model)
-
 
 def portfolio_details(request):
     id = int(request.GET['id'])
@@ -61,10 +64,8 @@ def portfolio_details(request):
 
     return render(request, 'portfolio-details.html',model)
 
-
 def resume(request):
     return render(request, 'resume.html')
-
 
 def services(request):
     return render(request, 'services.html')
