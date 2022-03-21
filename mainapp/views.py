@@ -1,4 +1,5 @@
 import os
+import socket
 
 from django.shortcuts import render
 
@@ -7,7 +8,10 @@ from mainapp.models import *
 
 
 def main(request):
-
+    ip = socket.gethostbyname(socket.gethostname())
+    print("IP Address(Internal) : ", socket.gethostbyname(socket.gethostname()))
+    if VisitantModel.objects.filter(visitant_ip=ip).exists():
+        pass
     return render(request, 'index.html')
 
 def about(request):
