@@ -8,12 +8,14 @@ from mainapp.models import *
 
 
 def main(request):
+
     ip =socket.gethostbyname(socket.gethostname())
 
     if VisitantModel.objects.filter(visitant_ip=ip).exists():
         return render(request, 'index.html')
 
     VisitantModel.objects.create(visitant_ip=ip)
+
     return render(request, 'index.html')
 
 
